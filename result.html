@@ -1,0 +1,35 @@
+{ wsdl: 
+   { uri: 'https://ics2wstest.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.93.wsdl',
+     callback: [Function],
+     options: {},
+     definitions: 
+      { xmlns: [Object],
+        '$name': 'CyberSourceTransactionWS',
+        '$targetNamespace': 'urn:schemas-cybersource-com:transaction-data:TransactionProcessor',
+        messages: [Object],
+        portTypes: [Object],
+        bindings: [Object],
+        services: [Object],
+        schemas: [Object] },
+     xml: '<?xml version="1.0" encoding="utf-8"?>\n<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CyberSourceTransactionWS" targetNamespace="urn:schemas-cybersource-com:transaction-data:TransactionProcessor" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:schemas-cybersource-com:transaction-data:TransactionProcessor" xmlns:data="urn:schemas-cybersource-com:transaction-data-1.93">\n   <wsdl:types>\n      <xsd:schema>\n         <xsd:import namespace="urn:schemas-cybersource-com:transaction-data-1.93" schemaLocation="CyberSourceTransaction_1.93.xsd"/>\n      </xsd:schema>\n   </wsdl:types>\n   <wsdl:message name="messageIn">\n      <wsdl:part name="input" element="data:requestMessage"/>\n   </wsdl:message>\n   <wsdl:message name="messageOut">\n      <wsdl:part name="result" element="data:replyMessage"/>\n   </wsdl:message>\n   <wsdl:portType name="ITransactionProcessor">\n      <wsdl:operation name="runTransaction">\n         <wsdl:input name="inputMessageIn" message="tns:messageIn"/>\n         <wsdl:output name="outputMessageOut" message="tns:messageOut"/>\n      </wsdl:operation>\n   </wsdl:portType>\n   <wsdl:binding name="ITransactionProcessor" type="tns:ITransactionProcessor">\n      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>\n      <wsdl:operation name="runTransaction">\n         <soap:operation soapAction="runTransaction" style="document"/>\n         <wsdl:input name="inputMessageIn">\n            <soap:body use="literal"/>\n         </wsdl:input>\n         <wsdl:output name="outputMessageOut">\n            <soap:body use="literal"/>\n         </wsdl:output>\n      </wsdl:operation>\n   </wsdl:binding>\n   <wsdl:service name="TransactionProcessor">\n      <wsdl:documentation>CyberSource Web Service</wsdl:documentation>\n      <wsdl:port name="portXML" binding="tns:ITransactionProcessor">\n         <soap:address location="https://ics2wstest.ic3.com/commerce/1.x/transactionProcessor"/>\n      </wsdl:port>\n   </wsdl:service>\n</wsdl:definitions>',
+     services: { TransactionProcessor: [Object] },
+     xmlnsInEnvelope: ' xmlns:tns="urn:schemas-cybersource-com:transaction-data:TransactionProcessor" xmlns:data="urn:schemas-cybersource-com:transaction-data-1.93"' },
+  runTransaction: [Function],
+  TransactionProcessor: { portXML: { runTransaction: [Function] } },
+  security: 
+   { _username: 'mckenley1',
+     _password: 'doi/zyq5OvM+riRcaYhnJnpyQt7FD7WlF1QBQT0SMrhwN9rUKAeG7owGCb01PCyOGxNUIqvDrNiQItgl8nyBIfeNyo0JmH1F4DMlbKiIIc85EXEt2NlDkLvK0Do+hf2Bh97dTGFpL7FvVgUubuBjoyxhh8xh4PBvgomsFZuk+3t4C5nfPzplJLAkBWG2UfjSFAzcKZXeevl3pnR02NuDOpZbIXy8h/5dTI0D+KpM+WiYbJuUoiiKWPfmJmNq7ugCN12ruhTrkZp/YgeOU39AuOrdMCmzNS1TFDJZ60vf6W5ZPL5QN8WjFjUEbXDklOcwja7ylL1pVh8XS45CTqtOAg==',
+     _passwordType: 'PasswordText' } }
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+<soap:Fault xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/04/secext" xmlns:c="urn:schemas-cybersource-com:transaction-data-1.0">
+<faultcode>soap:Client</faultcode>
+<faultstring>
+XML parse error.
+Missing Attribute 'run'
+</faultstring>
+</soap:Fault>
+</soap:Body>
+</soap:Envelope>
+
