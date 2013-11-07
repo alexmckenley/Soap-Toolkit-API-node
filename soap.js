@@ -1,7 +1,9 @@
 var soap = require('../node-soap/lib/soap.js');
 var fs = require('fs');
 
-var url = 'https://ics2wstest.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.93.wsdl';
+var sendToProduction = false;
+
+var url = 'https://ics2ws' + (sendToProduction ? '' : 'test') + '.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.93.wsdl';
 //var args = {name: 'value'};
 soap.createClient(url, function(err, client) {
   //set security
@@ -21,8 +23,10 @@ soap.createClient(url, function(err, client) {
         authRequestID: "3837883164250176056166"
       }
     }, function(err, result) {
-      //console.log(err);
-      console.log(result);
+      if(err)
+        console.log(err);
+      
+      console.log(result.body ? result.body : result);
     });
 
 });
