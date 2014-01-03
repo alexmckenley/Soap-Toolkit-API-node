@@ -30,6 +30,7 @@ soap.createClient(url, function(err, client) {
         $id: 0,
         unitPrice: "5.00",
         quantity: "5",
+        taxAmount: "1.11",
         commodityCode: "123"
       },
       purchaseTotals: {
@@ -42,15 +43,22 @@ soap.createClient(url, function(err, client) {
         expirationYear: "2018",
         cardType: "001"
       },
-      ccAuthService: {
-        $run: true,
-        //authRequestID: "3878318292440176056428"
+      recurringSubscriptionInfo: {
+        amount: "99.00",
+        frequency: "monthly"
+      },
+      // ccAuthService: {
+      //   $run: true,
+      //   //authRequestID: "3878318292440176056428"
+      // },
+      paySubscriptionCreateService: {
+        $run: true
       }
     }, function(err, result) {
       if(err)
         console.log(err);
       
-      console.log(result.body ? result.body : result);
+      console.log(result.body || result);
     });
 }
 });
