@@ -7,6 +7,7 @@ var url = 'https://ics2ws' + (sendToProduction ? '' : 'test') + '.ic3.com/commer
 //var args = {name: 'value'};
 soap.createClient(url, function(err, client) {
   //set security
+  //console.log(client);
   client.setSecurity(new soap.WSSecurity('mckenley1', 'doi/zyq5OvM+riRcaYhnJnpyQt7FD7WlF1QBQT0SMrhwN9rUKAeG7owGCb01PCyOGxNUIqvDrNiQItgl8nyBIfeNyo0JmH1F4DMlbKiIIc85EXEt2NlDkLvK0Do+hf2Bh97dTGFpL7FvVgUubuBjoyxhh8xh4PBvgomsFZuk+3t4C5nfPzplJLAkBWG2UfjSFAzcKZXeevl3pnR02NuDOpZbIXy8h/5dTI0D+KpM+WiYbJuUoiiKWPfmJmNq7ugCN12ruhTrkZp/YgeOU39AuOrdMCmzNS1TFDJZ60vf6W5ZPL5QN8WjFjUEbXDklOcwja7ylL1pVh8XS45CTqtOAg=='));
   
   //run transaction
@@ -25,7 +26,7 @@ soap.createClient(url, function(err, client) {
         country: "US",
         email: "null@cybersource.com"
       },
-      item: {
+      item:{
         $id: 0,
         unitPrice: "5.00",
         quantity: "5",
@@ -33,7 +34,7 @@ soap.createClient(url, function(err, client) {
       },
       purchaseTotals: {
         currency: "USD",
-        //grandTotalAmount: 7.00
+        //grandTotalAmount: 15.00
       },
       card: {
         accountNumber: "4111111111111111",
@@ -42,7 +43,8 @@ soap.createClient(url, function(err, client) {
         cardType: "001"
       },
       ccAuthService: {
-        $run: true
+        $run: true,
+        //authRequestID: "3878318292440176056428"
       }
     }, function(err, result) {
       if(err)
